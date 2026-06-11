@@ -1,561 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Cali Sweet Frenchies</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Montserrat',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-background:#0d0d0d;
-color:white;
-overflow-x:hidden;
+  background:#050505;
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
 img{
-width:100%;
-display:block;
+  width:100%;
+  display:block;
+}
+
+:root{
+  --pink:#ff2fa7;
+  --hot:#ff006e;
+  --dark:#080808;
+  --gray:#151515;
+  --line:rgba(255,255,255,.12);
 }
 
 .container{
-width:90%;
-max-width:1300px;
-margin:auto;
+  width:90%;
+  max-width:1400px;
+  margin:auto;
 }
 
 /* NAV */
-
 nav{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-z-index:100;
-padding:25px 0;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  padding:22px 0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.8),rgba(0,0,0,0));
 }
 
 .nav-wrap{
-display:flex;
-justify-content:space-between;
-align-items:center;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
-font-size:1.5rem;
-font-weight:800;
-letter-spacing:2px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;
+  letter-spacing:3px;
+}
+
+.logo span{
+  color:var(--pink);
 }
 
 .menu{
-display:flex;
-gap:30px;
+  display:flex;
+  gap:30px;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
-.menu a{
-color:white;
-text-decoration:none;
-font-size:.9rem;
+.menu a:hover{
+  color:var(--pink);
 }
 
 /* HERO */
-
 .hero{
-height:100vh;
-background:url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1800') center center/cover;
-position:relative;
-display:flex;
-align-items:center;
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.72) 38%,rgba(0,0,0,.25) 100%),
+  url('https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=1800') center/cover;
 }
 
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.55);
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  radial-gradient(circle at 70% 50%,rgba(255,47,167,.22),transparent 32%),
+  linear-gradient(to top,#050505 0%,transparent 22%);
 }
 
 .hero-content{
-position:relative;
-z-index:5;
-max-width:700px;
+  position:relative;
+  z-index:3;
+  padding-top:80px;
+}
+
+.kicker{
+  color:var(--pink);
+  font-weight:900;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  font-size:.8rem;
+  margin-bottom:18px;
 }
 
 .hero h1{
-font-size:5rem;
-font-weight:800;
-line-height:1;
-margin-bottom:20px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,14vw,13rem);
+  line-height:.78;
+  letter-spacing:4px;
+  max-width:900px;
+  text-shadow:0 0 35px rgba(255,47,167,.35);
+}
+
+.hero h1 span{
+  color:var(--pink);
 }
 
 .hero p{
-font-size:1.2rem;
-margin-bottom:30px;
-color:#ddd;
+  margin-top:28px;
+  max-width:580px;
+  color:#ddd;
+  font-size:1.05rem;
+  line-height:1.7;
+}
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
 }
 
 .btn{
-display:inline-block;
-padding:15px 35px;
-background:#ff5ea8;
-color:white;
-text-decoration:none;
-font-weight:700;
-border-radius:50px;
-margin-right:15px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 34px;
+  border-radius:100px;
+  font-size:.8rem;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border:1px solid var(--pink);
+  background:var(--pink);
+  box-shadow:0 0 28px rgba(255,47,167,.35);
 }
 
-/* ABOUT */
-
-.about{
-padding:100px 0;
+.btn.outline{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.25);
+  box-shadow:none;
 }
 
-.section-title{
-font-size:3rem;
-font-weight:800;
-margin-bottom:25px;
+.hero-stats{
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:repeat(3,160px);
+  gap:18px;
 }
 
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
+.stat{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(10px);
+  padding:18px;
+  border-radius:18px;
 }
 
-.about-image img{
-border-radius:20px;
+.stat strong{
+  display:block;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.3rem;
+  color:var(--pink);
 }
 
-.about p{
-line-height:1.8;
-color:#ccc;
+.stat small{
+  color:#aaa;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:800;
 }
 
-/* STUD */
+/* MARQUEE */
+.marquee{
+  overflow:hidden;
+  background:var(--pink);
+  color:#000;
+  padding:16px 0;
+  white-space:nowrap;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;
+  letter-spacing:3px;
+}
 
+.marquee-track{
+  display:inline-block;
+  animation:move 18s linear infinite;
+}
+
+@keyframes move{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+/* FEATURED STUD */
 .stud{
-padding:100px 0;
-background:#141414;
+  padding:120px 0;
+  background:
+  radial-gradient(circle at 15% 30%,rgba(255,47,167,.15),transparent 30%),
+  #050505;
 }
 
-.stud-card{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
+.section-head{
+  margin-bottom:55px;
 }
 
-.stud-image{
-height:650px;
-background:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?w=1200') center center/cover;
-border-radius:25px;
+.section-head small{
+  color:var(--pink);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-weight:900;
 }
 
-.stud-info h2{
-font-size:4rem;
-margin-bottom:20px;
+.section-head h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,9vw,9rem);
+  line-height:.85;
+  letter-spacing:3px;
+  margin-top:12px;
+}
+
+.stud-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:35px;
+  align-items:stretch;
+}
+
+.stud-photo{
+  min-height:720px;
+  border-radius:35px;
+  overflow:hidden;
+  position:relative;
+  background:url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1400') center/cover;
+}
+
+.stud-photo::after{
+  content:"PINK PANTHER";
+  position:absolute;
+  left:30px;
+  bottom:24px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,8vw,7rem);
+  line-height:.85;
+  color:#fff;
+  text-shadow:0 0 25px #000;
+}
+
+.stud-info{
+  border:1px solid var(--line);
+  border-radius:35px;
+  padding:55px;
+  background:linear-gradient(145deg,#171717,#070707);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.stud-info h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:6rem;
+  line-height:.85;
+}
+
+.stud-info h3 span{
+  color:var(--pink);
 }
 
 .stud-info p{
-color:#ccc;
-margin-bottom:20px;
-line-height:1.8;
+  color:#cfcfcf;
+  line-height:1.8;
+  margin-top:25px;
 }
 
-.badges{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-margin-top:30px;
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:35px;
 }
 
-.badges span{
-padding:10px 20px;
-background:#242424;
-border-radius:50px;
+.tags span{
+  border:1px solid var(--line);
+  background:#0d0d0d;
+  padding:12px 18px;
+  border-radius:100px;
+  font-size:.75rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-/* PROGRAMS */
-
-.programs{
-padding:100px 0;
+.mini-stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:40px;
 }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:50px;
+.mini{
+  background:#0b0b0b;
+  border:1px solid var(--line);
+  padding:25px;
+  border-radius:22px;
 }
 
-.card{
-background:#171717;
-padding:40px;
-border-radius:20px;
+.mini strong{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;
+  color:var(--pink);
 }
 
-.card h3{
-margin-bottom:15px;
+.mini p{
+  margin:0;
+  color:#aaa;
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-.card p{
-color:#bbb;
-line-height:1.8;
+/* PROGRAM */
+.program{
+  padding:120px 0;
+  background:#0b0b0b;
+}
+
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.program-card{
+  min-height:430px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  padding:30px;
+  display:flex;
+  align-items:flex-end;
+  background:#111;
+}
+
+.program-card:nth-child(1){
+  background:
+  linear-gradient(to top,rgba(0,0,0,.9),transparent),
+  url('https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?q=80&w=1200') center/cover;
+}
+
+.program-card:nth-child(2){
+  background:
+  linear-gradient(to top,rgba(0,0,0,.9),transparent),
+  url('https://images.unsplash.com/photo-1560807707-8cc77767d783?q=80&w=1200') center/cover;
+}
+
+.program-card:nth-child(3){
+  background:
+  linear-gradient(to top,rgba(0,0,0,.9),transparent),
+  url('https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1200') center/cover;
+}
+
+.program-card h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3.5rem;
+  line-height:.9;
+}
+
+.program-card p{
+  margin-top:12px;
+  color:#ddd;
+  line-height:1.6;
+}
+
+/* BANNER */
+.banner{
+  min-height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+  url('https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=1800') center/cover fixed;
+}
+
+.banner h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,12vw,12rem);
+  line-height:.8;
+  letter-spacing:4px;
+}
+
+.banner h2 span{
+  color:var(--pink);
 }
 
 /* GALLERY */
-
 .gallery{
-padding:100px 0;
-background:#141414;
+  padding:120px 0;
+  background:#050505;
 }
 
 .gallery-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
-.gallery-grid img{
-height:300px;
-object-fit:cover;
-border-radius:20px;
+.gallery-item{
+  height:330px;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+  background:#111;
 }
 
-/* WHY */
-
-.why{
-padding:100px 0;
+.gallery-item.tall{
+  height:680px;
+  grid-row:span 2;
 }
 
-.why-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
-margin-top:50px;
+.gallery-item.wide{
+  grid-column:span 2;
 }
 
-.why-box{
-background:#171717;
-padding:35px;
-border-radius:20px;
-text-align:center;
+.gallery-item img{
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
 }
 
-/* TESTIMONIALS */
-
-.testimonials{
-padding:100px 0;
-background:#141414;
-}
-
-.testimonial-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:40px;
-}
-
-.testimonial{
-background:#1b1b1b;
-padding:35px;
-border-radius:20px;
+.gallery-item:hover img{
+  transform:scale(1.08);
 }
 
 /* CONTACT */
-
 .contact{
-padding:120px 0;
-text-align:center;
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  background:
+  linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.95)),
+  url('https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1800') center/cover;
 }
 
 .contact h2{
-font-size:3rem;
-margin-bottom:20px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,11vw,11rem);
+  line-height:.8;
+}
+
+.contact h2 span{
+  color:var(--pink);
 }
 
 .contact p{
-color:#ccc;
-margin-bottom:35px;
+  max-width:650px;
+  margin:28px auto 35px;
+  color:#ddd;
+  line-height:1.8;
 }
 
 /* FOOTER */
-
 footer{
-padding:40px;
-text-align:center;
-border-top:1px solid #222;
-color:#777;
+  padding:35px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  color:#777;
+  font-size:.8rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
 }
 
+/* MOBILE */
 @media(max-width:900px){
+  .menu{
+    display:none;
+  }
 
-.hero h1{
-font-size:3rem;
+  .hero{
+    min-height:100svh;
+    background-position:center;
+  }
+
+  .hero-stats{
+    grid-template-columns:1fr;
+    width:100%;
+  }
+
+  .stat{
+    max-width:260px;
+  }
+
+  .stud-grid,
+  .program-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stud-photo{
+    min-height:520px;
+  }
+
+  .stud-info{
+    padding:32px;
+  }
+
+  .stud-info h3{
+    font-size:4.5rem;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide{
+    height:420px;
+    grid-column:auto;
+    grid-row:auto;
+  }
 }
-
-.about-grid,
-.stud-card,
-.cards,
-.gallery-grid,
-.why-grid,
-.testimonial-grid{
-grid-template-columns:1fr;
-}
-
-.stud-image{
-height:450px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <nav>
-<div class="container nav-wrap">
-
-<div class="logo">
-CALI SWEET FRENCHIES
-</div>
-
-<div class="menu">
-<a href="#">Home</a>
-<a href="#">Studs</a>
-<a href="#">Gallery</a>
-<a href="#">Contact</a>
-</div>
-
-</div>
+  <div class="container nav-wrap">
+    <div class="logo">CALI SWEET <span>FRENCHIES</span></div>
+    <div class="menu">
+      <a href="#stud">Stud</a>
+      <a href="#program">Program</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
 <section class="hero">
+  <div class="container hero-content">
+    <div class="kicker">California • Luxury Fluffy French Bulldogs</div>
 
-<div class="container hero-content">
+    <h1>
+      CALI SWEET<br>
+      <span>FRENCHIES</span>
+    </h1>
 
-<h1>CALI SWEET FRENCHIES</h1>
+    <p>
+      Premium fluffy French Bulldogs with rare color, compact structure,
+      bold personality, and that unforgettable Cali Sweet look.
+    </p>
 
-<p>
-Luxury Fluffy French Bulldogs
-</p>
+    <div class="hero-buttons">
+      <a href="#stud" class="btn">View Stud</a>
+      <a href="#contact" class="btn outline">Message Us</a>
+    </div>
 
-<a href="#" class="btn">View Studs</a>
-<a href="#" class="btn">Contact Us</a>
+    <div class="hero-stats">
+      <div class="stat">
+        <strong>17.5K</strong>
+        <small>Followers</small>
+      </div>
 
-</div>
+      <div class="stat">
+        <strong>CA</strong>
+        <small>Based</small>
+      </div>
 
+      <div class="stat">
+        <strong>WW</strong>
+        <small>Transport</small>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="about">
-
-<div class="container">
-
-<div class="about-grid">
-
-<div class="about-image">
-<img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=1200">
+<div class="marquee">
+  <div class="marquee-track">
+    CALI SWEET FRENCHIES • FLUFFY FRENCH BULLDOGS • RARE COLOR PROGRAM • PREMIUM STRUCTURE • WORLDWIDE TRANSPORT •
+    CALI SWEET FRENCHIES • FLUFFY FRENCH BULLDOGS • RARE COLOR PROGRAM • PREMIUM STRUCTURE • WORLDWIDE TRANSPORT •
+  </div>
 </div>
 
-<div>
+<section class="stud" id="stud">
+  <div class="container">
 
-<h2 class="section-title">
-Welcome To Cali Sweet Frenchies
-</h2>
+    <div class="section-head">
+      <small>Featured Stud</small>
+      <h2>Meet The Muscle</h2>
+    </div>
 
-<p>
-We are passionate about producing exceptional fluffy French Bulldogs with outstanding structure, temperament, health, and unique colors.
-Our mission is to raise beautiful companions while maintaining quality breeding practices and excellent customer support.
-</p>
+    <div class="stud-grid">
 
-</div>
+      <div class="stud-photo"></div>
 
-</div>
+      <div class="stud-info">
+        <div>
+          <h3>PINK<br><span>PANTHER</span></h3>
 
-</div>
+          <p>
+            The face of the program. Compact, rare, fluffy, and impossible to ignore.
+            Pink Panther brings that luxury Frenchie look with serious presence.
+          </p>
 
+          <div class="tags">
+            <span>Fluffy</span>
+            <span>French Bulldog</span>
+            <span>Stud Service</span>
+            <span>Rare Color</span>
+            <span>Premium Structure</span>
+          </div>
+        </div>
+
+        <div class="mini-stats">
+          <div class="mini">
+            <strong>01</strong>
+            <p>Featured Stud</p>
+          </div>
+
+          <div class="mini">
+            <strong>CA</strong>
+            <p>California Program</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section class="stud">
+<section class="program" id="program">
+  <div class="container">
 
-<div class="container">
+    <div class="section-head">
+      <small>Our Program</small>
+      <h2>Built Different</h2>
+    </div>
 
-<div class="stud-card">
+    <div class="program-grid">
 
-<div class="stud-image"></div>
+      <div class="program-card">
+        <div>
+          <h3>Fluffy<br>Program</h3>
+          <p>Premium fluffy French Bulldogs with standout coat, color, and presence.</p>
+        </div>
+      </div>
 
-<div class="stud-info">
+      <div class="program-card">
+        <div>
+          <h3>Rare<br>Colors</h3>
+          <p>Eye-catching combinations made for families, breeders, and collectors.</p>
+        </div>
+      </div>
 
-<h2>Pink Panther</h2>
+      <div class="program-card">
+        <div>
+          <h3>Worldwide<br>Reach</h3>
+          <p>California based with worldwide connections and transport options.</p>
+        </div>
+      </div>
 
-<p>
-One of the standout males in our program, Pink Panther represents the quality, structure, and unique look that defines Cali Sweet Frenchies.
-</p>
-
-<div class="badges">
-<span>Fluffy French Bulldog</span>
-<span>Rare Colors</span>
-<span>Available Stud</span>
-<span>Premium Bloodline</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
-<section class="programs">
-
-<div class="container">
-
-<h2 class="section-title">
-Our Program
-</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>Fluffy Program</h3>
-<p>Premium fluffy French Bulldogs carefully selected for quality and structure.</p>
-</div>
-
-<div class="card">
-<h3>Rare Colors</h3>
-<p>Unique color combinations with exceptional visual appeal and pedigree.</p>
-</div>
-
-<div class="card">
-<h3>Family Companions</h3>
-<p>Healthy puppies raised with care, attention, and socialization.</p>
-</div>
-
-</div>
-
-</div>
-
+<section class="banner">
+  <h2>QUALITY<br><span>OVER HYPE</span></h2>
 </section>
 
-<section class="gallery">
+<section class="gallery" id="gallery">
+  <div class="container">
 
-<div class="container">
+    <div class="section-head">
+      <small>Visuals</small>
+      <h2>The Look</h2>
+    </div>
 
-<h2 class="section-title">
-Gallery
-</h2>
+    <div class="gallery-grid">
 
-<div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=900">
+      </div>
 
-<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200">
-<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=1200">
-<img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200">
-<img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?w=1200">
-<img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=1200">
-<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=900">
+      </div>
 
-</div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=900">
+      </div>
 
-</div>
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?q=80&w=900">
+      </div>
 
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1400">
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=900">
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=900">
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section class="why">
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>CALI SWEET<br><span>FRENCHIES</span></h2>
 
-<div class="container">
+    <p>
+      Looking for your next fluffy Frenchie or interested in Pink Panther?
+      Message us directly on Instagram.
+    </p>
 
-<h2 class="section-title">
-Why Choose Us
-</h2>
-
-<div class="why-grid">
-
-<div class="why-box">
-<h3>Quality Bloodlines</h3>
-</div>
-
-<div class="why-box">
-<h3>Health Focused</h3>
-</div>
-
-<div class="why-box">
-<h3>Family Raised</h3>
-</div>
-
-<div class="why-box">
-<h3>Worldwide Transport</h3>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="testimonials">
-
-<div class="container">
-
-<h2 class="section-title">
-Happy Families
-</h2>
-
-<div class="testimonial-grid">
-
-<div class="testimonial">
-Amazing experience from start to finish. Highly recommended.
-</div>
-
-<div class="testimonial">
-Beautiful puppy and excellent communication throughout the process.
-</div>
-
-<div class="testimonial">
-Professional breeder and incredible quality dogs.
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="contact">
-
-<div class="container">
-
-<h2>Ready To Meet Your Next Frenchie?</h2>
-
-<p>
-Contact Cali Sweet Frenchies today.
-</p>
-
-<a href="#" class="btn">
-Message Us
-</a>
-
-</div>
-
+    <a href="https://instagram.com/calisweetfrenchies" class="btn" target="_blank">
+      Message On Instagram
+    </a>
+  </div>
 </section>
 
 <footer>
-
-CALI SWEET FRENCHIES © 2026
-
+  Cali Sweet Frenchies © 2026 • California • Fluffy French Bulldogs
 </footer>
 
 </body>
